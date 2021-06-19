@@ -4,7 +4,7 @@ import { IncompleteTodos } from "src/components/IncompleteTodos";
 import { CompleteTodos } from "src/components/CompleteTodos.jsx";
 
 export default function Home() {
-  const [todoText, setTodoText] = useState();
+  const [todoText, setTodoText] = useState("");
 
   const [incompleteTodos, setIncompleteTodos] = useState([]);
 
@@ -49,7 +49,11 @@ export default function Home() {
         todoText={todoText}
         onChange={onChangeTodoText}
         onClick={onClickAdd}
+        disabled={incompleteTodos.length >= 5}
       />
+      {incompleteTodos.length >= 5 && (
+        <p style={{ color: "red" }}>登録できるToDoは5個迄です。</p>
+      )}
 
       <IncompleteTodos
         todos={incompleteTodos}
