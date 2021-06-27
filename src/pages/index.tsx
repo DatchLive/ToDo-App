@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { InputTodo } from "src/components/InputTodo";
 import { IncompleteTodos } from "src/components/IncompleteTodos";
-import { CompleteTodos } from "src/components/CompleteTodos.jsx";
+import { CompleteTodos } from "src/components/CompleteTodos";
 
 export default function Home() {
   const [todoText, setTodoText] = useState("");

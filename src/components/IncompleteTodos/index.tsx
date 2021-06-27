@@ -1,7 +1,7 @@
 import styles from "src/styles/styles.module.css";
 
 export const IncompleteTodos = (props) => {
-  const {todos, onClickComplete, onClickDelete} = props;
+  const { todos, onClickComplete, onClickDelete } = props;
   return (
     <div className={styles.incompletearea}>
       <p className={styles.title}>未完了のToDo</p>
