@@ -1,6 +1,13 @@
 import styles from "src/styles/styles.module.css";
+import type { VFC } from "react";
 
-export const IncompleteTodos = (props) => {
+type Props = {
+  todos: string[];
+  onClickComplete: (index: number) => void;
+  onClickDelete: (index: number) => void;
+};
+
+export const IncompleteTodos: VFC<Props> = (props) => {
   const { todos, onClickComplete, onClickDelete } = props;
   return (
     <div className={styles.incompletearea}>

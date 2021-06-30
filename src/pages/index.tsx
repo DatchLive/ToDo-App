@@ -2,15 +2,17 @@ import { useState } from "react";
 import { InputTodo } from "src/components/InputTodo";
 import { IncompleteTodos } from "src/components/IncompleteTodos";
 import { CompleteTodos } from "src/components/CompleteTodos";
+import type { NextPage } from "next";
 
-export default function Home() {
+const Home: NextPage = () => {
   const [todoText, setTodoText] = useState("");
 
-  const [incompleteTodos, setIncompleteTodos] = useState([]);
+  const [incompleteTodos, setIncompleteTodos] = useState<string[]>([]);
 
-  const [completeTodos, setCompleteTodos] = useState([]);
+  const [completeTodos, setCompleteTodos] = useState<string[]>([]);
 
-  const onChangeTodoText = (e) => setTodoText(e.target.value);
+  const onChangeTodoText = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setTodoText(e.target.value);
 
   const onClickAdd = () => {
     if (todoText === "") return;
@@ -19,13 +21,13 @@ export default function Home() {
     setTodoText("");
   };
 
-  const onClickDelete = (index) => {
+  const onClickDelete = (index: number) => {
     const newTodos = [...incompleteTodos];
     newTodos.splice(index, 1);
     setIncompleteTodos(newTodos);
   };
 
-  const onClickComplete = (index) => {
+  const onClickComplete = (index: number) => {
     const newIncompleteTodos = [...incompleteTodos];
     newIncompleteTodos.splice(index, 1);
 
@@ -34,7 +36,7 @@ export default function Home() {
     setCompleteTodos(newCompleteTodos);
   };
 
-  const onClickBack = (index) => {
+  const onClickBack = (index: number) => {
     const newCompleteTodos = [...completeTodos];
     newCompleteTodos.splice(index, 1);
 
@@ -64,4 +66,5 @@ export default function Home() {
       <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
     </>
   );
-}
+};
+export default Home;
