@@ -7,7 +7,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "next",
-    "prettier",s
+    "prettier",
   ],
   rules: {
     "no-console": ["error", { allow: ["warn", "info", "error"] }], //console.logを禁止。console.warn, console.info, console.errorは許可
