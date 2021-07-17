@@ -1,5 +1,5 @@
-import styles from "src/styles/styles.module.css";
 import type { VFC } from "react";
+import { Button } from "@vechaiui/react";
 
 type Props = {
   todos: string[];
@@ -10,15 +10,29 @@ type Props = {
 export const IncompleteTodos: VFC<Props> = (props) => {
   const { todos, onClickComplete, onClickDelete } = props;
   return (
-    <div className={styles.incompletearea}>
-      <p className={styles.title}>未完了のToDo</p>
+    <div className="mb-8">
+      <p className="text-xl font-bold mb-2">未完了のToDo</p>
       <ul>
         {todos.map((todo, index) => {
           return (
-            <div key={todo} className={styles.listrow}>
+            <div key={todo} className="flex mb-4 justify-between">
               <li>{todo}</li>
-              <button onClick={() => onClickComplete(index)}>完了</button>
-              <button onClick={() => onClickDelete(index)}>削除</button>
+              <div>
+                <Button
+                  className="border-2"
+                  size="sm"
+                  onClick={() => onClickComplete(index)}
+                >
+                  完了
+                </Button>
+                <Button
+                  className="border-2 ml-1"
+                  size="sm"
+                  onClick={() => onClickDelete(index)}
+                >
+                  削除
+                </Button>
+              </div>
             </div>
           );
         })}

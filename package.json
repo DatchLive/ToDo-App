@@ -15,6 +15,10 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@tailwindcss/forms": "^0.3.3",
+    "@vechaiui/core": "^0.4.0",
+    "@vechaiui/react": "^0.1.10",
+    "firebase": "^8.7.1",
     "next": "^11.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
@@ -24,6 +28,7 @@
     "@types/react": "^17.0.14",
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
+    "autoprefixer": "^10.3.1",
     "eslint": "^7.30.0",
     "eslint-config-next": "^11.0.1",
     "eslint-config-prettier": "^8.3.0",
@@ -34,7 +39,9 @@
     "husky": "^7.0.1",
     "lint-staged": "^11.0.1",
     "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.5",
     "prettier": "2.3.2",
+    "tailwindcss": "^2.2.4",
     "typescript": "^4.3.5"
   },
   "lint-staged": {
