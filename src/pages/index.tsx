@@ -47,23 +47,27 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <InputTodo
-        todoText={todoText}
-        onChange={onChangeTodoText}
-        onClick={onClickAdd}
-        disabled={incompleteTodos.length >= 5}
-      />
-      {incompleteTodos.length >= 5 && (
-        <p style={{ color: "red" }}>登録できるToDoは5個迄です。</p>
-      )}
+      <div className="m-4">
+        <InputTodo
+          todoText={todoText}
+          onChange={onChangeTodoText}
+          onClick={onClickAdd}
+          disabled={incompleteTodos.length >= 5}
+        />
+        {incompleteTodos.length >= 5 && (
+          <p className="text-red-500 font-bold mb-4">
+            登録できるToDoは5個迄です。
+          </p>
+        )}
 
-      <IncompleteTodos
-        todos={incompleteTodos}
-        onClickComplete={onClickComplete}
-        onClickDelete={onClickDelete}
-      />
+        <IncompleteTodos
+          todos={incompleteTodos}
+          onClickComplete={onClickComplete}
+          onClickDelete={onClickDelete}
+        />
 
-      <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
+        <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
+      </div>
     </>
   );
 };
