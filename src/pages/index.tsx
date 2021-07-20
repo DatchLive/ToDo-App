@@ -15,7 +15,11 @@ const Home: NextPage = () => {
     setTodoText(e.target.value);
 
   const onClickAdd = () => {
-    if (todoText === "") return;
+    if (todoText === "") return; //タスク未入力状態ではタスク追加しない。
+    if (incompleteTodos.some((item) => item === todoText)) {
+      alert("同じタスクは追加できません。");
+      return; //同名のタスクは入力禁止
+    }
     const newTodos = [...incompleteTodos, todoText];
     setIncompleteTodos(newTodos);
     setTodoText("");
