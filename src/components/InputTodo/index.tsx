@@ -13,13 +13,17 @@ export const InputTodo: VFC<Props> = (props) => {
   return (
     <div className="flex mb-4">
       <Input
-        className="border-2 mr-2"
+        className="mr-2 border-2 hover:opacity-50"
         disabled={disabled}
         placeholder="ToDoを入力"
         value={todoText}
         onChange={onChange}
       />
-      <Button className=" border-2" disabled={disabled} onClick={onClick}>
+      <Button
+        className="border-2 cursor-pointer hover:opacity-50"
+        disabled={disabled}
+        onClick={onClick}
+      >
         追加
       </Button>
     </div>
