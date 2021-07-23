@@ -1,14 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { InputTodo } from "src/components/InputTodo";
 import { IncompleteTodos } from "src/components/IncompleteTodos";
 import { CompleteTodos } from "src/components/CompleteTodos";
 import type { NextPage } from "next";
+import { auth } from "src/lib/firebase";
+import { useRouter } from "next/router";
+import { User } from "@firebase/auth-types";
+import { Button } from "@vechaiui/react";
 
 const Home: NextPage = () => {
+  const router = useRouter();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [currentUser, setCurrentUser] = useState<null | User>(null);
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      user ? setCurrentUser(user) : router.push("/login");
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const logOut = async () => {
+    try {
+      await auth.signOut();
+      router.push("/login");
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  //タスク入力
   const [todoText, setTodoText] = useState("");
-
+  //未完了タスク
   const [incompleteTodos, setIncompleteTodos] = useState<string[]>([]);
-
+  //完了タスク
   const [completeTodos, setCompleteTodos] = useState<string[]>([]);
 
   const onChangeTodoText = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -72,11 +96,14 @@ const Home: NextPage = () => {
             onClickComplete={onClickComplete}
             onClickDelete={onClickDelete}
           />
-
           <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
+          <Button type="submit" onClick={logOut} className="block m-auto mb-4">
+            Logout
+          </Button>
         </div>
       </div>
     </>
   );
 };
+
 export default Home;
