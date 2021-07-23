@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState, VFC } from "react";
 import { auth } from "src/lib/firebase";
 import Link from "next/link";
+import { Button, Input } from "@vechaiui/react";
 
 const Login: VFC = () => {
   const router = useRouter();
@@ -37,19 +38,26 @@ const Login: VFC = () => {
   };
 
   return (
-    <div>
+    <div className="max-w-screen-sm m-auto">
       <form>
         <label htmlFor="email">Email</label>
-        <input id="email" type="emai" onChange={onChangeEmail} />
+        <Input id="email" type="emai" onChange={onChangeEmail} />
         <label htmlFor="password">Password</label>
-        <input id="password" type="password" onChange={onChangePassword} />
-        <button type="submit" onClick={logIn}>
+        <Input
+          id="password"
+          type="password"
+          onChange={onChangePassword}
+          className="mb-6"
+        />
+        <Button type="submit" onClick={logIn} className="block m-auto mb-4">
           Login
-        </button>
+        </Button>
       </form>
-      <Link href="/register">
-        <a>Register</a>
-      </Link>
+      <Button className="block m-auto">
+        <Link href="/register">
+          <a>Register</a>
+        </Link>
+      </Button>
     </div>
   );
 };
