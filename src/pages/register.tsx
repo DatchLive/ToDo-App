@@ -3,6 +3,7 @@ import { useEffect, useState, VFC } from "react";
 import { auth } from "src/lib/firebase";
 import { InputFrom } from "src/components/InputForm";
 import { PrimaryButton } from "src/components/PrimaryButton";
+import { Title } from "src/components/Title";
 
 const Register: VFC = () => {
   const router = useRouter();
@@ -39,9 +40,7 @@ const Register: VFC = () => {
 
   return (
     <>
-      <h1 className="mb-4 text-xl font-bold text-center">
-        <span className="border-b-2 border-black ">Register</span>
-      </h1>
+      <Title title="Register" />
       <form>
         <InputFrom type="email" onChange={onChangeEmail} />
         <InputFrom type="password" onChange={onChangePassword} />

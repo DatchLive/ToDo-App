@@ -7,6 +7,7 @@ import { auth } from "src/lib/firebase";
 import { useRouter } from "next/router";
 import { User } from "@firebase/auth-types";
 import { PrimaryButton } from "src/components/PrimaryButton";
+import { Title } from "src/components/Title";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -75,9 +76,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <h1 className="mb-4 text-xl font-bold text-center">
-        <span className="border-b-2 border-black ">Simple ToDo</span>
-      </h1>
+      <Title title="Simple ToDo" />
       <InputTodo
         todoText={todoText}
         onChange={onChangeTodoText}
