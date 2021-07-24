@@ -2,7 +2,10 @@ import { useRouter } from "next/router";
 import { useEffect, useState, VFC } from "react";
 import { auth } from "src/lib/firebase";
 import Link from "next/link";
-import { Button, Input } from "@vechaiui/react";
+import { Button } from "@vechaiui/react";
+import { InputFrom } from "src/components/InputForm";
+import { PrimaryButton } from "src/components/PrimaryButton";
+import { Title } from "src/components/Title";
 
 const Login: VFC = () => {
   const router = useRouter();
@@ -39,31 +42,13 @@ const Login: VFC = () => {
 
   return (
     <>
-      <h1 className="mb-4 text-xl font-bold text-center">
-        <span className="border-b-2 border-black ">Login</span>
-      </h1>
+      <Title title="Login" />
       <form>
-        <label htmlFor="email">Email</label>
-        <Input
-          id="email"
-          type="emai"
-          onChange={onChangeEmail}
-          className="mb-4 border-2 hover:opacity-50"
-        />
-        <label htmlFor="password">Password</label>
-        <Input
-          id="password"
-          type="password"
-          onChange={onChangePassword}
-          className="mb-6 border-2 hover:opacity-50"
-        />
-        <Button
-          type="submit"
-          onClick={logIn}
-          className="block m-auto mb-4 border-2 cursor-pointer hover:opacity-50"
-        >
-          Login
-        </Button>
+        <InputFrom type="email" onChange={onChangeEmail} />
+        <InputFrom type="password" onChange={onChangePassword} />
+        <div className="mb-6 text-center">
+          <PrimaryButton onClick={logIn}>Login</PrimaryButton>
+        </div>
       </form>
       <Button className="block m-auto border-2 cursor-pointer hover:opacity-50">
         <Link href="/register">

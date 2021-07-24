@@ -1,5 +1,5 @@
 import type { VFC } from "react";
-import { Button } from "@vechaiui/react";
+import { PrimaryButton } from "src/components/PrimaryButton";
 
 type Props = {
   todos: string[];
@@ -18,20 +18,14 @@ export const IncompleteTodos: VFC<Props> = (props) => {
             <div key={todo} className="flex items-center justify-between mb-4">
               <li>{todo}</li>
               <div>
-                <Button
-                  className="border-2 cursor-pointer hover:opacity-50"
-                  size="sm"
-                  onClick={() => onClickComplete(index)}
-                >
+                <PrimaryButton size="sm" onClick={() => onClickComplete(index)}>
                   完了
-                </Button>
-                <Button
-                  className="ml-1 border-2 cursor-pointer hover:opacity-50"
-                  size="sm"
-                  onClick={() => onClickDelete(index)}
-                >
-                  削除
-                </Button>
+                </PrimaryButton>
+                <span className="ml-1">
+                  <PrimaryButton size="sm" onClick={() => onClickDelete(index)}>
+                    削除
+                  </PrimaryButton>
+                </span>
               </div>
             </div>
           );

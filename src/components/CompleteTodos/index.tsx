@@ -1,5 +1,5 @@
 import type { VFC } from "react";
-import { Button } from "@vechaiui/react";
+import { PrimaryButton } from "src/components/PrimaryButton";
 
 type Props = {
   todos: string[];
@@ -16,13 +16,9 @@ export const CompleteTodos: VFC<Props> = (props) => {
           return (
             <div key={todo} className="flex items-center justify-between mb-4">
               <li>{todo}</li>
-              <Button
-                className="border-2 cursor-pointer hover:opacity-50"
-                size="sm"
-                onClick={() => onClickBack(index)}
-              >
+              <PrimaryButton size="sm" onClick={() => onClickBack(index)}>
                 戻す
-              </Button>
+              </PrimaryButton>
             </div>
           );
         })}

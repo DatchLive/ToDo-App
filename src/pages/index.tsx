@@ -6,7 +6,8 @@ import type { NextPage } from "next";
 import { auth } from "src/lib/firebase";
 import { useRouter } from "next/router";
 import { User } from "@firebase/auth-types";
-import { Button } from "@vechaiui/react";
+import { PrimaryButton } from "src/components/PrimaryButton";
+import { Title } from "src/components/Title";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -75,9 +76,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <h1 className="mb-4 text-xl font-bold text-center">
-        <span className="border-b-2 border-black ">Simple ToDo</span>
-      </h1>
+      <Title title="Simple ToDo" />
       <InputTodo
         todoText={todoText}
         onChange={onChangeTodoText}
@@ -86,7 +85,7 @@ const Home: NextPage = () => {
       />
       {incompleteTodos.length >= 5 && (
         <p className="mb-4 font-bold text-red-500">
-          You can register up to 5 items.
+          You can register up to 5 ToDo.
         </p>
       )}
       <IncompleteTodos
@@ -95,13 +94,9 @@ const Home: NextPage = () => {
         onClickDelete={onClickDelete}
       />
       <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
-      <Button
-        type="submit"
-        onClick={logOut}
-        className="block m-auto mb-4 border-2 cursor-pointer hover:opacity-50"
-      >
-        Logout
-      </Button>
+      <div className="mb-6 text-center">
+        <PrimaryButton onClick={logOut}>Logout</PrimaryButton>
+      </div>
     </>
   );
 };
