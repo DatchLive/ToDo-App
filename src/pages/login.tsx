@@ -38,7 +38,7 @@ const Login: VFC = () => {
   };
 
   return (
-    <div className="max-w-screen-sm m-auto">
+    <>
       <form>
         <label htmlFor="email">Email</label>
         <Input id="email" type="emai" onChange={onChangeEmail} />
@@ -58,7 +58,7 @@ const Login: VFC = () => {
           <a>Register</a>
         </Link>
       </Button>
-    </div>
+    </>
   );
 };
 
