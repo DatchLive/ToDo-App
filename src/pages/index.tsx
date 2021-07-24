@@ -86,7 +86,7 @@ const Home: NextPage = () => {
       />
       {incompleteTodos.length >= 5 && (
         <p className="mb-4 font-bold text-red-500">
-          You can register up to 5 items.
+          You can register up to 5 ToDo.
         </p>
       )}
       <IncompleteTodos
