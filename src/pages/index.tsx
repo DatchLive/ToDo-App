@@ -95,7 +95,11 @@ const Home: NextPage = () => {
         onClickDelete={onClickDelete}
       />
       <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
-      <Button type="submit" onClick={logOut} className="block m-auto mb-4">
+      <Button
+        type="submit"
+        onClick={logOut}
+        className="block m-auto mb-4 border-2 cursor-pointer hover:opacity-50"
+      >
         Logout
       </Button>
     </>
