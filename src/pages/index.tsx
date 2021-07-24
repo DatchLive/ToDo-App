@@ -75,33 +75,33 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className="max-w-screen-sm m-auto">
-        <div className="m-4 ">
-          <h1 className="mb-4 text-xl font-bold text-center">
-            <span className="border-b-2 border-black ">Simple ToDo</span>
-          </h1>
-          <InputTodo
-            todoText={todoText}
-            onChange={onChangeTodoText}
-            onClick={onClickAdd}
-            disabled={incompleteTodos.length >= 5}
-          />
-          {incompleteTodos.length >= 5 && (
-            <p className="mb-4 font-bold text-red-500">
-              You can register up to 5 items.
-            </p>
-          )}
-          <IncompleteTodos
-            todos={incompleteTodos}
-            onClickComplete={onClickComplete}
-            onClickDelete={onClickDelete}
-          />
-          <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
-          <Button type="submit" onClick={logOut} className="block m-auto mb-4">
-            Logout
-          </Button>
-        </div>
-      </div>
+      <h1 className="mb-4 text-xl font-bold text-center">
+        <span className="border-b-2 border-black ">Simple ToDo</span>
+      </h1>
+      <InputTodo
+        todoText={todoText}
+        onChange={onChangeTodoText}
+        onClick={onClickAdd}
+        disabled={incompleteTodos.length >= 5}
+      />
+      {incompleteTodos.length >= 5 && (
+        <p className="mb-4 font-bold text-red-500">
+          You can register up to 5 items.
+        </p>
+      )}
+      <IncompleteTodos
+        todos={incompleteTodos}
+        onClickComplete={onClickComplete}
+        onClickDelete={onClickDelete}
+      />
+      <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
+      <Button
+        type="submit"
+        onClick={logOut}
+        className="block m-auto mb-4 border-2 cursor-pointer hover:opacity-50"
+      >
+        Logout
+      </Button>
     </>
   );
 };

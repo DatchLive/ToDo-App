@@ -38,27 +38,39 @@ const Login: VFC = () => {
   };
 
   return (
-    <div className="max-w-screen-sm m-auto">
+    <>
+      <h1 className="mb-4 text-xl font-bold text-center">
+        <span className="border-b-2 border-black ">Login</span>
+      </h1>
       <form>
         <label htmlFor="email">Email</label>
-        <Input id="email" type="emai" onChange={onChangeEmail} />
+        <Input
+          id="email"
+          type="emai"
+          onChange={onChangeEmail}
+          className="mb-4 border-2 hover:opacity-50"
+        />
         <label htmlFor="password">Password</label>
         <Input
           id="password"
           type="password"
           onChange={onChangePassword}
-          className="mb-6"
+          className="mb-6 border-2 hover:opacity-50"
         />
-        <Button type="submit" onClick={logIn} className="block m-auto mb-4">
+        <Button
+          type="submit"
+          onClick={logIn}
+          className="block m-auto mb-4 border-2 cursor-pointer hover:opacity-50"
+        >
           Login
         </Button>
       </form>
-      <Button className="block m-auto">
+      <Button className="block m-auto border-2 cursor-pointer hover:opacity-50">
         <Link href="/register">
           <a>Register</a>
         </Link>
       </Button>
-    </div>
+    </>
   );
 };
 
