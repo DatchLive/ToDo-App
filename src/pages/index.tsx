@@ -6,7 +6,7 @@ import type { NextPage } from "next";
 import { auth } from "src/lib/firebase";
 import { useRouter } from "next/router";
 import { User } from "@firebase/auth-types";
-import { Button } from "@vechaiui/react";
+import { PrimaryButton } from "src/components/PrimaryButton";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -95,13 +95,9 @@ const Home: NextPage = () => {
         onClickDelete={onClickDelete}
       />
       <CompleteTodos todos={completeTodos} onClickBack={onClickBack} />
-      <Button
-        type="submit"
-        onClick={logOut}
-        className="block m-auto mb-4 border-2 cursor-pointer hover:opacity-50"
-      >
-        Logout
-      </Button>
+      <div className="mb-6 text-center">
+        <PrimaryButton onClick={logOut}>Logout</PrimaryButton>
+      </div>
     </>
   );
 };

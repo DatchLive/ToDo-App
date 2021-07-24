@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect, useState, VFC } from "react";
 import { auth } from "src/lib/firebase";
-import { Button } from "@vechaiui/react";
 import { InputFrom } from "src/components/InputForm";
+import { PrimaryButton } from "src/components/PrimaryButton";
 
 const Register: VFC = () => {
   const router = useRouter();
@@ -45,13 +45,9 @@ const Register: VFC = () => {
       <form>
         <InputFrom type="email" onChange={onChangeEmail} />
         <InputFrom type="password" onChange={onChangePassword} />
-        <Button
-          type="submit"
-          onClick={register}
-          className="block m-auto border-2 cursor-pointer hover:opacity-50"
-        >
-          Register
-        </Button>
+        <div className="mb-6 text-center">
+          <PrimaryButton onClick={register}>Register</PrimaryButton>
+        </div>
       </form>
     </>
   );

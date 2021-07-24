@@ -4,6 +4,7 @@ import { auth } from "src/lib/firebase";
 import Link from "next/link";
 import { Button } from "@vechaiui/react";
 import { InputFrom } from "src/components/InputForm";
+import { PrimaryButton } from "src/components/PrimaryButton";
 
 const Login: VFC = () => {
   const router = useRouter();
@@ -46,13 +47,9 @@ const Login: VFC = () => {
       <form>
         <InputFrom type="email" onChange={onChangeEmail} />
         <InputFrom type="password" onChange={onChangePassword} />
-        <Button
-          type="submit"
-          onClick={logIn}
-          className="block m-auto mb-4 border-2 cursor-pointer hover:opacity-50"
-        >
-          Login
-        </Button>
+        <div className="mb-6 text-center">
+          <PrimaryButton onClick={logIn}>Login</PrimaryButton>
+        </div>
       </form>
       <Button className="block m-auto border-2 cursor-pointer hover:opacity-50">
         <Link href="/register">
